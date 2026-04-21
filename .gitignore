@@ -1,0 +1,4 @@
+# Bỏ qua thư mục venv
+venv/
+.venv/
+.env

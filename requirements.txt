@@ -1,0 +1,26 @@
+# AI Story Adventure — Backend Dependencies
+
+# Web framework
+# fastapi==0.111.0
+# uvicorn[standard]==0.30.1
+
+# Settings
+# pydantic==2.7.1
+pydantic-settings==2.3.0
+
+# Firebase
+firebase-admin==6.5.0
+
+# HTTP client (Ollama)
+# httpx==0.27.0
+
+# Testing
+pytest==8.2.0
+pytest-asyncio==0.23.7
+httpx==0.28.1   # dùng cho TestClient async
+fastapi==0.116.1
+uvicorn==0.35.0
+pydantic==2.11.7
+python-dotenv==1.1.1
+openai==1.101.0
+google-genai==1.32.0

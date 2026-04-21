@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hành Trình</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="theme-light play-body">
+  <div class="play-shell">
+    <header class="play-topbar readable-card">
+      <div>
+        <div class="eyebrow small" id="topWorld">Thế giới</div>
+        <h1 id="topName">Nhân vật</h1>
+      </div>
+      <div class="top-actions">
+        <a class="btn btn-soft" href="./index.html">Đổi thế giới</a>
+        <a class="btn btn-soft" href="./create-character.html">Đổi nhân vật</a>
+        <button class="btn btn-soft" type="button" data-theme-toggle>🌙 Chế độ tối</button>
+        <button class="btn btn-soft" id="refreshBtn">Làm mới</button>
+      </div>
+    </header>
+
+    <main class="play-layout">
+      <section class="story-column readable-card">
+        <div class="story-header">
+          <div>
+            <div class="eyebrow small">Câu chuyện đang diễn ra</div>
+            <h2 id="storyLocation">—</h2>
+          </div>
+          <div class="action-inline">
+            <select id="actionType" class="soft-select">
+              <option value="explore">Khám phá</option>
+              <option value="talk">Trò chuyện</option>
+              <option value="take_item">Nhặt vật phẩm</option>
+              <option value="use_item">Dùng vật phẩm</option>
+              <option value="attack">Tấn công</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="storyImage" class="story-image-container" style="display: none;">
+          <img id="storyImageEl" src="" alt="Story theme" class="story-image" />
+          <div class="image-loading" id="imageLoading" style="display: none;">
+            <p>Đang vẽ tranh...</p>
+          </div>
+        </div>
+
+        <div id="storyLog" class="story-log clean-log"></div>
+
+        <div class="composer">
+          <input id="actionInput" class="text-input composer-input" placeholder="Bạn muốn làm gì tiếp theo?" />
+          <button id="sendBtn" class="btn">Gửi</button>
+        </div>
+      </section>
+
+      <aside class="side-column">
+        <section class="readable-card side-panel">
+          <div class="tabs tabs-two-line">
+            <button class="tab-btn active" data-tab="overview">Nhân vật</button>
+            <button class="tab-btn" data-tab="quests">Nhiệm vụ</button>
+            <button class="tab-btn" data-tab="items">Hành trang</button>
+            <button class="tab-btn" data-tab="people">Người gặp</button>
+            <button class="tab-btn" data-tab="world">Thế giới</button>
+            <button class="tab-btn" data-tab="memory">Dấu vết</button>
+          </div>
+
+          <div class="sidebar-scroll">
+            <div class="tab-panel active" data-panel="overview"><div id="overviewPanel"></div></div>
+            <div class="tab-panel" data-panel="quests"><div id="questsPanel"></div></div>
+            <div class="tab-panel" data-panel="items"><div id="itemsPanel"></div></div>
+            <div class="tab-panel" data-panel="people"><div id="peoplePanel"></div></div>
+            <div class="tab-panel" data-panel="world"><div id="worldPanel"></div></div>
+            <div class="tab-panel" data-panel="memory"><div id="memoryPanel"></div></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+  </div>
+  <script src="./shared.js"></script>
+  <script>
+    const storyLog = qs('#storyLog');
+    const sendBtn = qs('#sendBtn');
+    const actionInput = qs('#actionInput');
+    const actionTypeEl = qs('#actionType');
+    let sending = false;
+    let turnCounter = 0;
+
+    if (!storage.sessionId) go('./index.html');
+
+    async function loadStoryThemeImage() {
+      const imageContainer = qs('#storyImage');
+      const imageLoading = qs('#imageLoading');
+      const storyImageEl = qs('#storyImageEl');
+      
+      imageContainer.style.display = 'block';
+      imageLoading.style.display = 'block';
+      storyImageEl.style.display = 'none';
+      
+      const imagePath = await generateStoryThemeImage(storage.sessionId);
+      
+      if (imagePath) {
+        storyImageEl.src = imagePath;
+        storyImageEl.onload = () => {
+          imageLoading.style.display = 'none';
+          storyImageEl.style.display = 'block';
+        };
+        storyImageEl.onerror = () => {
+          imageLoading.style.display = 'none';
+          imageContainer.style.display = 'none';
+        };
+      } else {
+        imageLoading.style.display = 'none';
+        imageContainer.style.display = 'none';
+      }
+    }
+
+    function addWelcomeEntry() {
+      if (storyLog.children.length) return;
+      storyLog.innerHTML = `
+        <article class="story-entry intro-entry">
+          <div class="entry-kicker">Khởi đầu</div>
+          <p>Thế giới đã mở ra. Hãy bắt đầu bằng một hành động thật tự nhiên: nhìn quanh, hỏi chuyện, hoặc tiến thẳng về phía trước.</p>
+        </article>`;
+      
+      // Load story theme image async
+      loadStoryThemeImage();
+    }
+
+    function addPlayerEntry(text) {
+      const el = document.createElement('article');
+      el.className = 'story-entry player-entry';
+      el.innerHTML = `<div class="entry-kicker">Bạn</div><p>${esc(text)}</p>`;
+      storyLog.appendChild(el);
+      storyLog.scrollTop = storyLog.scrollHeight;
+    }
+
+    function addNarrativeEntry(narrative, choices = [], stateChanges = []) {
+      turnCounter += 1;
+      const entry = document.createElement('article');
+      entry.className = 'story-entry';
+      const choicesHtml = choices.length ? `
+        <div class="choice-wrap">${choices.map(c => `<button class="choice-pill" data-choice="${esc(c)}">${esc(c)}</button>`).join('')}</div>` : '';
+      const noteHtml = stateChanges.length ? `<div class="soft-notes">${stateChanges.map(s => `<div>${esc(s)}</div>`).join('')}</div>` : '';
+      entry.innerHTML = `
+        <div class="entry-kicker">Lượt ${turnCounter}</div>
+      <p>${esc(narrative).replace(/\n/g, '<br>')}</p>
+        ${choicesHtml}
+        ${noteHtml}`;
+      storyLog.appendChild(entry);
+      qsa('[data-choice]', entry).forEach(btn => btn.addEventListener('click', () => sendAction(btn.dataset.choice)));
+      storyLog.scrollTop = storyLog.scrollHeight;
+    }
+
+    function renderOverview(basic, full) {
+      const hp = basic?.hp ?? 100;
+      const stamina = basic?.stamina ?? 100;
+      const stress = basic?.stress ?? 0;
+      qs('#overviewPanel').innerHTML = `
+        <div class="meter-card">
+          <label>Sinh lực</label><div class="meter"><span style="width:${Math.max(0, Math.min(100, hp))}%"></span></div><strong>${hp}/100</strong>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-stat"><span>Thể lực</span><strong>${stamina}</strong></div>
+          <div class="mini-stat"><span>Căng thẳng</span><strong>${stress}</strong></div>
+          <div class="mini-stat"><span>Lượt</span><strong>${basic?.turn_count ?? 0}</strong></div>
+        </div>
+        <div class="soft-section"><h3>Mục tiêu hiện tại</h3><p>${esc(basic?.current_objective || 'Chưa rõ')}</p></div>
+        <div class="soft-section"><h3>Tính cách</h3><p>${esc((full?.character_profile?.personality_traits || []).join(', ') || 'Chưa có')}</p></div>
+        <div class="soft-section"><h3>Phẩm chất</h3><p>${esc((full?.character_profile?.virtues || []).join(', ') || 'Chưa có')}</p></div>
+      `;
+    }
+
+    function renderQuests(full) {
+      const quests = full?.dynamic_quests || [];
+      qs('#questsPanel').innerHTML = quests.length ? quests.map(q => `
+        <div class="list-card"><h3>${esc(q.title)}</h3><p>${esc(q.summary || '')}</p><div class="meta-line">${esc(q.status || 'active')}</div></div>
+      `).join('') : '<div class="empty-state">Chưa có nhiệm vụ nào xuất hiện.</div>';
+    }
+
+    function renderItems(full) {
+      const items = full?.inventory || [];
+      qs('#itemsPanel').innerHTML = items.length ? items.map(i => `
+        <div class="list-card compact"><h3>${esc(i.name)}</h3><p>${esc(i.item_type || 'vật phẩm')} · Số lượng: ${esc(i.quantity)}</p></div>
+      `).join('') : '<div class="empty-state">Hành trang đang trống.</div>';
+    }
+
+    function renderPeople(full) {
+      const npcs = full?.npcs || [];
+      qs('#peoplePanel').innerHTML = npcs.length ? npcs.map(n => `
+        <div class="list-card"><h3>${esc(n.name)}</h3><p>${esc(n.role || '')}</p><div class="meta-line">${esc((n.personality?.traits || []).join(', ') || 'Ít thông tin')}</div></div>
+      `).join('') : '<div class="empty-state">Bạn chưa gặp ai đáng nhớ.</div>';
+    }
+
+    function renderWorld(full, basic) {
+      const world = full?.world || {};
+      const discoveries = world.discoveries || [];
+      const events = full?.active_events || [];
+      qs('#worldPanel').innerHTML = `
+        <div class="soft-section"><h3>Địa điểm</h3><p>${esc(basic?.location || world.location || 'Chưa rõ')}</p></div>
+        <div class="soft-section"><h3>Bầu không khí</h3><p>${esc(world.threat_state || 'ổn định')}</p></div>
+        <div class="soft-section"><h3>Dấu hiệu gần đây</h3>${discoveries.length ? discoveries.map(d => `<div class="bullet-line">• ${esc(d.content)}</div>`).join('') : '<p>Chưa có dấu hiệu mới.</p>'}</div>
+        <div class="soft-section"><h3>Biến cố đang chờ</h3>${events.length ? events.map(e => `<div class="bullet-line">• ${esc(e.title)}</div>`).join('') : '<p>Mọi thứ tạm yên.</p>'}</div>
+      `;
+    }
+
+    function renderMemory(full) {
+      const sm = full?.story_memory || {};
+      qs('#memoryPanel').innerHTML = `
+        <div class="soft-section"><h3>Gần đây</h3>${(sm.recent_events || []).length ? sm.recent_events.slice(-6).map(x => `<div class="bullet-line">• ${esc(x)}</div>`).join('') : '<p>Chưa có gì đáng nhớ.</p>'}</div>
+        <div class="soft-section"><h3>Điều còn đọng lại</h3>${(sm.important_facts || []).length ? sm.important_facts.slice(-6).map(x => `<div class="bullet-line">• ${esc(x)}</div>`).join('') : '<p>Chưa có ghi dấu lớn.</p>'}</div>
+      `;
+    }
+
+    async function refreshAll() {
+  try {
+    const basic = await safeFetch(`/game/${storage.sessionId}`);
+    const full = await safeFetch(`/debug/state/${storage.sessionId}`);
+
+    console.log('BASIC STATE:', basic);
+    console.log('FULL STATE:', full);
+
+    qs('#topWorld').textContent = basic.world_name || 'Thế giới';
+    qs('#topName').textContent = basic.player_name || 'Nhân vật';
+    qs('#storyLocation').textContent = basic.location || 'Chưa rõ địa điểm';
+    renderOverview(basic, full);
+    renderQuests(full);
+    renderItems(full);
+    renderPeople(full);
+    renderWorld(full, basic);
+    renderMemory(full);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+    async function sendAction(prefill = '') {
+      const content = (prefill || actionInput.value).trim();
+      if (!content || sending) return;
+      sending = true;
+      sendBtn.disabled = true;
+      addPlayerEntry(content);
+      actionInput.value = '';
+      try {
+        const data = await safeFetch('/game/turn', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            session_id: storage.sessionId,
+            action_type: actionTypeEl.value,
+            content
+          })
+        });
+        addNarrativeEntry(data.narrative || '', data.choices || [], data.state_changes || []);
+        await refreshAll();
+      } catch (err) {
+        alert(err.message || 'Không gửi được hành động.');
+      } finally {
+        sending = false;
+        sendBtn.disabled = false;
+      }
+    }
+
+    qs('#sendBtn').addEventListener('click', () => sendAction());
+    qs('#refreshBtn').addEventListener('click', refreshAll);
+    actionInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); sendAction(); } });
+    qsa('.tab-btn').forEach(btn => btn.addEventListener('click', () => {
+      qsa('.tab-btn').forEach(x => x.classList.remove('active'));
+      qsa('.tab-panel').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      qs(`[data-panel="${btn.dataset.tab}"]`).classList.add('active');
+    }));
+
+    addWelcomeEntry();
+    refreshAll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,956 @@
+{
+  "session_id": "456eadd4-5696-4168-95c4-a66a5c2915bc",
+  "world_definition": {
+    "world_id": "dark_fantasy",
+    "name": "Eldoria Tàn Tro",
+    "genre": "dark fantasy",
+    "tone": "u ám, bí ẩn, căng thẳng, không có anh hùng thực sự",
+    "core_theme": "suy tàn, bí mật bị chôn vùi, và cái giá của quyền lực",
+    "world_lore": "Eldoria từng là đế chế ma thuật hùng mạnh nhất lục địa, cai trị bởi Hội Đồng Bảy Ngọn Lửa — bảy pháp sư tối cao nắm giữ bảy viên Tinh Thể Nguồn. Ba mươi năm trước, Cuộc Chiến Tro Bụi nổ ra khi một trong bảy pháp sư phản bội, kích hoạt Lời Nguyền Quên Lãng khiến cả lục địa chìm vào hỗn loạn. Nay các thành phố lớn đã sụp đổ, ma thuật bị xem là tà đạo, và những sinh vật dị thường bắt đầu xuất hiện từ các vết nứt thực tại.",
+    "notable_regions": [
+      "Thành Phế Tích Vàng Son (thủ đô cũ, nay là mê cung đổ nát với những bẫy ma thuật còn hoạt động)",
+      "Đồng Hoang Tro Bụi (vùng đất bị nguyền rủa, không cây nào mọc được, thỉnh thoảng xuất hiện bóng ma binh lính cũ)",
+      "Rừng Thì Thầm (rừng cổ thụ mà cây cối biết nói, ẩn náu của các phù thủy trốn tránh giáo hội)",
+      "Làng Tro (khu định cư nhỏ của thường dân sống sót, thường xuyên bị tàn phá bởi quái vật và cướp bóc)",
+      "Tu Viện Sắt Đen (pháo đài của Giáo Hội Tro Tàn, nơi giam giữ và thẩm vấn những kẻ bị nghi dùng ma thuật)",
+      "Hầm Mỏ Sâu Thẳm (mỏ khoáng sản cũ, nay là hang ổ của sinh vật địa ngục và nhóm trộm mộ)",
+      "Cảng Rỉ Sét (hải cảng duy nhất còn hoạt động, trung tâm của buôn bán chợ đen và thông tin mật)",
+      "Tháp Gương Vỡ (một trong bảy tháp ma thuật cũ, hiện phát ra ánh sáng bất thường vào ban đêm)"
+    ],
+    "factions": [
+      "Giáo Hội Tro Tàn: tổ chức tôn giáo cực đoan, tin rằng ma thuật là nguồn gốc mọi tai họa, đang truy lùng và tiêu diệt bất kỳ ai sở hữu năng lực ma thuật",
+      "Thợ Săn Dị Giáo: lính đánh thuê của giáo hội, được huấn luyện đặc biệt để chống lại ma thuật, nhưng một số thành viên bí mật sử dụng chính thứ họ được sai đi tiêu diệt",
+      "Quý Tộc Suy Tàn: các lãnh chúa địa phương tranh giành quyền lực trên tàn tro đế chế cũ, sẵn sàng liên minh với bất kỳ ai — kể cả quái vật — nếu có lợi",
+      "Hội Chợ Đen Bóng Tối: mạng lưới buôn bán ngầm chuyên giao dịch cổ vật ma thuật, thông tin mật và danh tính giả, hoạt động ở Cảng Rỉ Sét",
+      "Những Kẻ Sống Sót Từ Hội Đồng: các pháp sư còn lại từ thời kỳ cũ, ẩn náu và rải rác khắp nơi, mỗi người có động cơ riêng — một số muốn khôi phục trật tự cũ, số khác muốn chôn vùi nó mãi mãi"
+    ],
+    "danger_types": [
+      "Tà Vật Vết Nứt: sinh vật chui ra từ các vết nứt thực tại, không thể giết bằng vũ khí thường",
+      "Bóng Ma Binh Lính: linh hồn không siêu thoát của binh lính tử trận, lặp lại hành động cuối đời",
+      "Bệnh Dịch Tro: căn bệnh lây qua tiếp xúc với đất bị nguyền rủa, gây mất trí nhớ dần dần",
+      "Phản Bội Nội Bộ: kẻ thù nguy hiểm nhất thường là người đồng hành",
+      "Bẫy Ma Thuật Cổ: các bẫy từ thời đế chế vẫn hoạt động, được kích hoạt bởi sự hiện diện của con người"
+    ],
+    "rules": [
+      "Ma thuật luôn có cái giá — mỗi lần sử dụng để lại dấu vết trên cơ thể và tâm trí",
+      "Người lạ đều bị nghi ngờ cho đến khi chứng minh được mình vô hại",
+      "Thông tin có giá hơn vàng — không ai chia sẻ miễn phí",
+      "Giáo hội có mặt ở khắp nơi — một số người tưởng là bạn có thể là mật thám",
+      "Những vật cổ từ thời đế chế thường mang năng lực nhưng đi kèm lời nguyền",
+      "Đêm xuống là lúc các vết nứt thực tại mở rộng — di chuyển ban đêm cực kỳ nguy hiểm"
+    ]
+  },
+  "character_profile": {
+    "name": "Đạt",
+    "background": "Một kẻ lữ hành mang khí chất mơ mộng, cứng đầu, nổi bật bởi biết hy sinh, trung thành.",
+    "personality_traits": [
+      "mơ mộng",
+      "cứng đầu",
+      "bản lĩnh",
+      "thận trọng",
+      "đa nghi",
+      "táo bạo",
+      "thực tế",
+      "bí ẩn",
+      "quyết đoán",
+      "sắc sảo",
+      "nhạy bén",
+      "khéo léo",
+      "kiên nhẫn",
+      "điềm tĩnh"
+    ],
+    "virtues": [
+      "biết hy sinh",
+      "trung thành",
+      "giữ lời",
+      "tôn trọng lời hứa",
+      "bền bỉ"
+    ],
+    "flaws": [
+      "bốc đồng"
+    ],
+    "fears": [
+      "đánh mất chính mình"
+    ],
+    "goals": [
+      "sống sót và tìm ra con đường của riêng mình"
+    ],
+    "hp": 100,
+    "stamina": 100,
+    "hunger": 0,
+    "thirst": 0,
+    "stress": 10,
+    "reputation": 0
+  },
+  "story_state": {
+    "current_situation": "Đạt vừa đặt chân tới rìa một khu đổ nát rộng lớn từng là thành trì của một vương quốc cổ, nay chỉ còn tro bụi và những mảnh tường đen sì vì lửa thiêng. Nơi đây nằm sát vùng cấm mang tên 'Tro tàn Eldoria' – thứ vẫn âm ỉ như một vết thương chưa lành trên thế giới.. Dưới chân là đất pha tro và những mảnh vỡ của kiến trúc từng nguy nga. Trên cao, bầu trời không bao giờ thực sự sáng – một thứ ánh sáng xám xịt như lọc qua tấm kính bẩn. Phía chân trời, làn khói mỏng vẫn bốc lên từ các khe nứt dưới lòng đất, nơi lửa ngầm chưa tắt. Thế giới này tên là Eldoria Tàn Tro.",
+    "current_tension": "Không khí nặng như chì, mỗi hơi thở như nuốt phải bụi than và mùi lưu huỳnh xa xa. Những bức tượng đổ nát có khuôn mặt bị cạo nhẵn, chỉ còn lại đôi mắt trống rỗng dường như nhìn theo từng bước chân. Thỉnh thoảng, một luồng gió lạnh bất thường thổi qua, mang theo tiếng rên rỉ từ những khe vỡ – có thể chỉ là gió, hoặc không. Ở đây, sự im lặng không phải là yên bình, mà là sự chờ đợi của một thứ gì đó đã từng chứng kiến tai họa và chưa thực sự kết thúc. Những vệt tro bụi trên mặt đất đôi khi xoáy thành hình xoắn ốc không tự nhiên, và mỗi lần như vậy, bạn cảm thấy một sự giám sát vô hình từ những tòa tháp đổ nát.",
+    "current_objective": "Trước mắt, bạn cần: (1) Quan sát khu vực một cách có hệ thống – xác định những gì còn có thể sử dụng (nước, chỗ ẩn nấp, dấu vết của người sống), (2) Tìm manh mối đầu tiên về thảm họa đã xảy ra (có thể qua các bức bích họa vỡ, những dòng chữ khắc trên đá, hoặc xác chết còn sót lại), (3) Nhận diện khu vực nguy hiểm nhất cần tránh – nơi có ánh sáng đen, hoặc nơi mặt đất phát ra tiếng vo ve của ma thuật hoang dã. Đừng mạo hiểm vào những tòa tháp còn đứng vững – chúng thường là nơi trú ngụ của thứ gì đó không muốn bị quấy rầy. Mục tiêu cuối cùng: sống sót đủ lâu để hiểu bạn đang ở đâu trong thế giới suy tàn này.",
+    "current_location_hint": "rìa một khu đổ nát rộng lớn từng là thành trì của một vương quốc cổ, nay chỉ còn tro bụi và những mảnh tường đen sì vì lửa thiêng. Nơi đây nằm sát vùng cấm mang tên 'Tro tàn Eldoria' – thứ vẫn âm ỉ như một vết thương chưa lành trên thế giới.",
+    "current_time_context": "ban ngày",
+    "active_threads": [
+      "Bước chân đầu tiên giữa vùng tàn tích của một thế giới suy tàn – bạn vừa vô tình kích hoạt một vòng tròn cảm ứng ma thuật cũ, phát ra ánh sáng xanh lục mờ nhạt dưới chân, có thể sẽ thu hút sự chú ý từ xa.",
+      "Những dấu chân lạ trên lớp tro – không phải của người, cũng không phải thú thường, mà là ba móng quặp và một vệt kéo dài, chúng bỏ đi theo hướng đông bắc, nơi có tòa tháp đổ nghiêng nhất.",
+      "Một vật thể nhỏ lấp lánh giữa đống đổ nát – chiếc huy chương bị gỉ sét, mặt sau khắc một cái tên và một lời nguyền ngắn bằng thứ ngôn ngữ không còn ai nhớ. Nó vẫn hơi ấm dù không có nguồn nhiệt nào gần đây.",
+      "Cảm giác bị theo dõi từ phía tây nam – không có hình bóng, không có tiếng động, nhưng mỗi khi quay lưng lại, gáy bạn lại nổi da gà."
+    ],
+    "unresolved_questions": [
+      "Tai họa nào đã để lại dấu vết rõ rệt trên khu vực này? Có phải là 'Hơi thở của vực thẳm' như lời đồn của những người lang thang cuối cùng? Hay một nghi lễ hủy diệt đã phản tác dụng?",
+      "Ai đang kiểm soát hoặc theo dõi vùng đổ nát này? Liệu có một tay trùm buôn bán di vật, một giáo phái điên cuồng tìm kiếm sức mạnh cổ xưa, hay một thực thể từ thế giới bên kia?",
+      "Vì sao một số khu vực ở đây vẫn còn lưu giữ nhiệt độ và ánh sáng lạ thường, trong khi những nơi khác lại chết chóc hoàn toàn? Liệu có mạch nguồn ma thuật ngầm nào chưa vỡ?",
+      "Có bao nhiêu người sống sót thực sự trong bán kính mười dặm quanh đây? Và họ là kẻ tuyệt vọng, thợ săn hay những kẻ mất trí?",
+      "Cấu trúc không gian ở đây có bị bẻ cong không? Bởi vì những tòa tháp trông xa nhưng sau một giờ đi bộ vẫn y nguyên khoảng cách ấy."
+    ],
+    "recent_story_beats": [
+      "Đạt xuất hiện tại rìa một khu đổ nát rộng lớn từng là thành trì của một vương quốc cổ, nay chỉ còn tro bụi và những mảnh tường đen sì vì lửa thiêng. Nơi đây nằm sát vùng cấm mang tên 'Tro tàn Eldoria' – thứ vẫn âm ỉ như một vết thương chưa lành trên thế giới., giữa những dấu vết mục nát của một thời đại cũ. Khi bóng tối bắt đầu trườn từ các khe nứt lên, nhân vật chính khẽ đặt tay lên chuôi kiếm (hoặc vật phòng thân), mắt lướt nhanh qua bốn hướng. Một quyết định nhỏ ở thời khắc này có thể thay đổi mọi thứ."
+    ]
+  },
+  "dynamic_quests": [],
+  "active_events": [],
+  "npcs": [
+    {
+      "npc_id": "53c07f5a-bf45-403f-a832-8e66a732e2eb",
+      "name": "Người Gác Mộ Cũ",
+      "role": "kẻ quan sát im lặng",
+      "personality": {
+        "traits": [
+          "đa nghi",
+          "điềm tĩnh"
+        ],
+        "speaking_style": "ngắn gọn, mơ hồ",
+        "moral_alignment": "khó đoán"
+      },
+      "memory": {
+        "short_term": [],
+        "long_term_facts": [
+          "Hắn luôn quan sát người lạ trước khi tin tưởng."
+        ]
+      }
+    }
+  ],
+  "inventory": [
+    {
+      "item_id": "e7955b64-83ab-408e-aa7e-2d379eb360fd",
+      "name": "Kiếm gỉ sét",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 5
+    },
+    {
+      "item_id": "6f0221d8-a082-450e-8a1c-7348c3e72f81",
+      "name": "Dao găm sắc lẻm",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 7
+    },
+    {
+      "item_id": "ad424e4a-7818-4e8b-a7bc-193dce5b61f1",
+      "name": "Cung ngắn đơn sơ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 6
+    },
+    {
+      "item_id": "0ddf5612-158e-4b7b-bf53-254778c98b7b",
+      "name": "Rìu chiến nứt cán",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 8
+    },
+    {
+      "item_id": "07858563-ab46-4dbd-be6c-7c45487d9c56",
+      "name": "Giáo dài",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 7
+    },
+    {
+      "item_id": "c6cff1f6-9aac-4757-b2d0-ee4552b817b5",
+      "name": "Chùy sắt",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 9
+    },
+    {
+      "item_id": "e8f50f06-e2fb-479b-977c-6f44fe2a49fe",
+      "name": "Đinh ba rỉ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 6
+    },
+    {
+      "item_id": "e4cbcd47-aac7-4dbc-a89a-7d1034c4eabd",
+      "name": "Phi tiêu sắt",
+      "description": "",
+      "quantity": 5,
+      "item_type": "weapon",
+      "power": 4
+    },
+    {
+      "item_id": "a5d35228-3f08-46b0-98f9-3ba2722acdef",
+      "name": "Súng hỏa mai cũ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 12
+    },
+    {
+      "item_id": "0cdb22c1-1ba4-4527-8b98-ad330d4a7f91",
+      "name": "Liềm tử thần",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 8
+    },
+    {
+      "item_id": "8e205eef-0f83-49b2-a61c-db011649232b",
+      "name": "Song đao ngắn",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 7
+    },
+    {
+      "item_id": "2bd2d397-0b98-4305-8c8b-dddb5fbe9004",
+      "name": "Mác",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 6
+    },
+    {
+      "item_id": "4e2435cd-a356-485c-b495-1eecaf3f4c31",
+      "name": "Quạt sắt",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 5
+    },
+    {
+      "item_id": "583cc493-3bb4-4823-b47e-f7e93c50108d",
+      "name": "Xà gạc",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 7
+    },
+    {
+      "item_id": "51a77773-3a93-4847-bfd7-e32dafaa13d6",
+      "name": "Chày gỗ cứng",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 4
+    },
+    {
+      "item_id": "40441a8f-d7a4-4b21-b274-d01e9a962362",
+      "name": "Lưỡi lê",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 6
+    },
+    {
+      "item_id": "30b0afac-4c09-45b1-af79-9e0d8f47b79a",
+      "name": "Cung nỏ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 7
+    },
+    {
+      "item_id": "b4fe763d-695e-4015-9e69-57b75e378231",
+      "name": "Tên lửa thô sơ",
+      "description": "",
+      "quantity": 2,
+      "item_type": "weapon",
+      "power": 9
+    },
+    {
+      "item_id": "360e22ef-6aad-4353-9990-56f15b21ad72",
+      "name": "Kiếm ngắn răng cưa",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 7
+    },
+    {
+      "item_id": "c3209ea5-3fb3-4c28-bf25-a71b20a2b4b8",
+      "name": "Búa tạ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 10
+    },
+    {
+      "item_id": "c05dfd52-c9e3-4d72-b074-04aa5ffaaa1d",
+      "name": "Đoản đao",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 6
+    },
+    {
+      "item_id": "88b0da4b-5b1b-423f-b2a0-8987b653baa6",
+      "name": "Thương lao",
+      "description": "",
+      "quantity": 3,
+      "item_type": "weapon",
+      "power": 5
+    },
+    {
+      "item_id": "77581983-1934-4f98-8c89-bff35b18c4cc",
+      "name": "Cung composite",
+      "description": "",
+      "quantity": 1,
+      "item_type": "weapon",
+      "power": 8
+    },
+    {
+      "item_id": "76d8868b-667a-4a24-89f6-b53f80233300",
+      "name": "Phiến đá sắc",
+      "description": "",
+      "quantity": 2,
+      "item_type": "weapon",
+      "power": 3
+    },
+    {
+      "item_id": "2d90ee34-83a3-4c2b-96e5-3ec3028b451a",
+      "name": "Mảnh kính vỡ",
+      "description": "",
+      "quantity": 3,
+      "item_type": "weapon",
+      "power": 2
+    },
+    {
+      "item_id": "18a3a1e2-36c4-4797-8301-7e50f5e049da",
+      "name": "Áo rách vá víu",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 2
+    },
+    {
+      "item_id": "2c48b308-76be-4a43-bc72-a3a632ce232c",
+      "name": "Mũ da cũ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 1
+    },
+    {
+      "item_id": "99ae2fc5-07d9-4c7d-b507-42350cf62e7c",
+      "name": "Áo giáp da",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 4
+    },
+    {
+      "item_id": "69aee364-43b4-400e-b320-365ddb32037a",
+      "name": "Giáp mảnh",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 6
+    },
+    {
+      "item_id": "e46b3f87-eca1-4c5d-9da9-d2af0aa22b98",
+      "name": "Mũ sắt",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 3
+    },
+    {
+      "item_id": "d172ecd7-1e71-4498-bd0a-49ef00779370",
+      "name": "Găng tay da",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 1
+    },
+    {
+      "item_id": "e56f5d44-2865-406e-9671-4f9b77670185",
+      "name": "Ủng bọc thép",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 2
+    },
+    {
+      "item_id": "67fbefb0-9625-4e60-bd7b-f157532c3a22",
+      "name": "Áo choàng dày",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 2
+    },
+    {
+      "item_id": "02f8d9c7-a2f2-4bc1-8e2d-1a53dfb2dc4a",
+      "name": "Tấm chắn gỗ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 3
+    },
+    {
+      "item_id": "65a454d5-58e8-4936-84e9-5721da9cb260",
+      "name": "Giáp lưới",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 5
+    },
+    {
+      "item_id": "552a719e-580b-4d9c-8a65-fc4ccbc254cc",
+      "name": "Mũ trùm đầu",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 1
+    },
+    {
+      "item_id": "6e13e469-70e2-4440-8ce5-db47524c692f",
+      "name": "Đai lưng bảo hộ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 1
+    },
+    {
+      "item_id": "ba4ab4e9-61ee-48d9-a153-402e865c0c03",
+      "name": "Áo giáp đồng",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 4
+    },
+    {
+      "item_id": "5f16d7ae-fd88-4e4e-8702-b44976e18a81",
+      "name": "Khiên da",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 2
+    },
+    {
+      "item_id": "da6f18bb-03d0-4d37-83f8-610ef775f94a",
+      "name": "Khiên sắt",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 4
+    },
+    {
+      "item_id": "f1b7c8e8-f438-48d7-93de-50b81165ed1b",
+      "name": "Mão thiếc",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 2
+    },
+    {
+      "item_id": "203ce263-ef6c-4a28-881f-faada2b04989",
+      "name": "Yếm da",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 3
+    },
+    {
+      "item_id": "dba76557-c228-44d9-88f1-a59c64d1ec29",
+      "name": "Hộp sọ thú",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 1
+    },
+    {
+      "item_id": "c5c02ff9-3525-4050-854a-e78e6dc9f6e5",
+      "name": "Áo bông nhồi",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 2
+    },
+    {
+      "item_id": "44083c32-e25d-4e44-9f86-b05d13557ca4",
+      "name": "Giáp tre",
+      "description": "",
+      "quantity": 1,
+      "item_type": "armor",
+      "power": 3
+    },
+    {
+      "item_id": "9f01ab4e-78dd-43a5-9ada-6a9cf29eb533",
+      "name": "Thuốc hồi phục",
+      "description": "",
+      "quantity": 3,
+      "item_type": "consumable",
+      "power": 20
+    },
+    {
+      "item_id": "f606649b-024e-4272-a0ca-320312780eb0",
+      "name": "Băng gạc thảo dược",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 10
+    },
+    {
+      "item_id": "2c02f870-04ce-47ce-b507-a9ef59ea764d",
+      "name": "Lương khô",
+      "description": "",
+      "quantity": 4,
+      "item_type": "consumable",
+      "power": 5
+    },
+    {
+      "item_id": "ca1b85c1-f1d3-4a4f-95d6-b668ac89ec06",
+      "name": "Rượu thuốc",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 15
+    },
+    {
+      "item_id": "c54c5a2c-b392-4e16-8b3a-f342bbe842de",
+      "name": "Nước suối thánh",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 25
+    },
+    {
+      "item_id": "23ac3683-f0c8-4b79-9cf1-96fa79613a6b",
+      "name": "Trái cây rừng",
+      "description": "",
+      "quantity": 5,
+      "item_type": "consumable",
+      "power": 3
+    },
+    {
+      "item_id": "7b9df825-c120-4961-ad39-45b197cbae92",
+      "name": "Thịt khô",
+      "description": "",
+      "quantity": 3,
+      "item_type": "consumable",
+      "power": 8
+    },
+    {
+      "item_id": "de1462db-f9a8-400e-b851-f43920dc0d56",
+      "name": "Thuốc mỡ",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 12
+    },
+    {
+      "item_id": "686201ea-394c-48f4-b36b-c4b3e53e3b64",
+      "name": "Bình máu",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 30
+    },
+    {
+      "item_id": "f7f7c1dd-945b-4a94-afbd-7b3062744395",
+      "name": "Nấm hồi sinh",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 10
+    },
+    {
+      "item_id": "b4fbb582-b1de-440a-82e6-1f16554c2563",
+      "name": "Bánh mì đen",
+      "description": "",
+      "quantity": 4,
+      "item_type": "consumable",
+      "power": 4
+    },
+    {
+      "item_id": "89ec2fe7-f2f7-4111-952c-4d02eb999d8b",
+      "name": "Sữa dê",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 6
+    },
+    {
+      "item_id": "b732b93f-9de3-48a6-9120-eb35675c8c02",
+      "name": "Thuốc bổ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 18
+    },
+    {
+      "item_id": "9f8a8abe-e84c-4604-8402-1742fe46a4ee",
+      "name": "Mật ong rừng",
+      "description": "",
+      "quantity": 3,
+      "item_type": "consumable",
+      "power": 7
+    },
+    {
+      "item_id": "025875be-f669-4dfc-8eb7-5b5e7a7263c1",
+      "name": "Linh chi thảo",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 15
+    },
+    {
+      "item_id": "22c9482b-d3aa-419e-99cf-33696092804f",
+      "name": "Thuốc giảm đau",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 8
+    },
+    {
+      "item_id": "59a196fa-4818-487f-bae7-87a089fc3626",
+      "name": "Nước tăng lực",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 10
+    },
+    {
+      "item_id": "31d9d6ed-6871-4cfd-b2b4-1336ced9b7c3",
+      "name": "Canh xương",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 12
+    },
+    {
+      "item_id": "8f81720b-1f81-40f0-af9c-f043282e3b75",
+      "name": "Bột hồi máu",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 22
+    },
+    {
+      "item_id": "a9135eff-80e2-4f56-86f6-1ce9b8b41060",
+      "name": "Trứng chiên",
+      "description": "",
+      "quantity": 3,
+      "item_type": "consumable",
+      "power": 5
+    },
+    {
+      "item_id": "f513d9a4-5f8b-4fd6-9583-e22adf135507",
+      "name": "Bánh quy",
+      "description": "",
+      "quantity": 5,
+      "item_type": "consumable",
+      "power": 3
+    },
+    {
+      "item_id": "7c667b7e-a0d6-410e-a9ea-e8f5a5bedc2e",
+      "name": "Thuốc tiên",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 40
+    },
+    {
+      "item_id": "5a620c0c-6624-43ea-9f9d-0b1bd5a677d1",
+      "name": "Trà gừng",
+      "description": "",
+      "quantity": 2,
+      "item_type": "consumable",
+      "power": 6
+    },
+    {
+      "item_id": "4c5044e6-2233-4183-9d42-7e69e73328fc",
+      "name": "Cao hổ cốt",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 20
+    },
+    {
+      "item_id": "9a0a1d07-050a-4ac8-ae94-6681b6d861b2",
+      "name": "Kim đan",
+      "description": "",
+      "quantity": 1,
+      "item_type": "consumable",
+      "power": 35
+    },
+    {
+      "item_id": "1b091305-5908-42b9-a27c-08d53973c167",
+      "name": "Bùa hộ mệnh thô sơ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 3
+    },
+    {
+      "item_id": "faf2d744-7c67-4c09-ba7d-2be2ec42b664",
+      "name": "Nhẫn đồng",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 1
+    },
+    {
+      "item_id": "ec6c9d71-4309-43fd-89b8-bbd4aa947b10",
+      "name": "Dây chuyền răng sói",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 2
+    },
+    {
+      "item_id": "6789ba08-fc63-4e80-8b35-9f93a1d31e9b",
+      "name": "Ngọc thạch vụn",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 4
+    },
+    {
+      "item_id": "21d623b9-1bad-4744-a2a0-2f422a9eadfd",
+      "name": "Lông công thần",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 3
+    },
+    {
+      "item_id": "1adea7f7-78f3-442b-b69f-ecbf8bb744ec",
+      "name": "Mảnh gương chiếu yêu",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 5
+    },
+    {
+      "item_id": "adb63c25-b96d-4185-ac32-9ace4129d194",
+      "name": "Hộp quả tim khô",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 2
+    },
+    {
+      "item_id": "eeb70913-6836-4678-9950-64ccc79aafd1",
+      "name": "Túi thơm",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 1
+    },
+    {
+      "item_id": "afcabc17-3870-4249-bafb-2deb325e5e56",
+      "name": "Vòng tay gai",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 3
+    },
+    {
+      "item_id": "9892fc2c-f312-411b-abe1-d3d663740365",
+      "name": "Móng vuốt thú",
+      "description": "",
+      "quantity": 1,
+      "item_type": "accessory",
+      "power": 2
+    },
+    {
+      "item_id": "04b2580b-e3e9-4e82-9020-ba5ced0beca8",
+      "name": "Đá lửa và mồi",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "8aabed88-23e4-4993-93b2-f71b63fa6f40",
+      "name": "Dao rọc giấy",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 1
+    },
+    {
+      "item_id": "70df3cfb-3264-43bf-a8c7-dfb66839e90e",
+      "name": "Cuốc xẻng nhỏ",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "8cde53de-3e61-4b93-bc49-a44cdbcb56d7",
+      "name": "Dây thừng",
+      "description": "",
+      "quantity": 2,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "004527eb-83f2-44b4-8a18-f135f01ceb35",
+      "name": "Đuốc",
+      "description": "",
+      "quantity": 5,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "588b6b80-dec8-4ed1-93f0-99b23505490b",
+      "name": "Túi đựng nước",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "865c8769-bd91-416c-bdbe-b74d80850a86",
+      "name": "Bản đồ rách",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "f7f3d41c-0883-424e-ab75-790eb63ffd9c",
+      "name": "La bàn hỏng",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "1272663e-18f1-4101-af19-50c0ccbb1abf",
+      "name": "Kính lúp",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "ae98a705-ac1c-4483-896a-c02c4c930d71",
+      "name": "Bộ đồ nghề",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "0bc32708-10a9-4fe0-a7d9-3d928dc7a609",
+      "name": "Lều bạt",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "70479240-1e9d-43e6-994c-852113963606",
+      "name": "Chai lọ",
+      "description": "",
+      "quantity": 3,
+      "item_type": "tool",
+      "power": 0
+    },
+    {
+      "item_id": "457788f9-207e-4469-8f53-78e0c216b369",
+      "name": "Búa đinh",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 1
+    },
+    {
+      "item_id": "571b7ef0-6b55-432a-8644-45b8ad8a1d4b",
+      "name": "Cưa tay",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 1
+    },
+    {
+      "item_id": "e72f95e9-2a48-4b11-8325-b620692c9ad7",
+      "name": "Kìm sắt",
+      "description": "",
+      "quantity": 1,
+      "item_type": "tool",
+      "power": 1
+    },
+    {
+      "item_id": "60fc824e-5c1f-4dda-bb35-cd448f6a890d",
+      "name": "Mảnh vải",
+      "description": "",
+      "quantity": 10,
+      "item_type": "material",
+      "power": 0
+    },
+    {
+      "item_id": "18e25192-e087-4dbc-9aaa-fcbf57175f51",
+      "name": "Gỗ vụn",
+      "description": "",
+      "quantity": 15,
+      "item_type": "material",
+      "power": 0
+    },
+    {
+      "item_id": "7ad577be-d0a5-4886-8338-2b7b753147a7",
+      "name": "Sắt vụn",
+      "description": "",
+      "quantity": 8,
+      "item_type": "material",
+      "power": 0
+    },
+    {
+      "item_id": "573f7a74-9912-46ed-bc5b-b3ec8b2fa83d",
+      "name": "Da thú",
+      "description": "",
+      "quantity": 5,
+      "item_type": "material",
+      "power": 0
+    },
+    {
+      "item_id": "1d06ca61-db21-46fe-9db7-d1a7081651ed",
+      "name": "Thảo mộc khô",
+      "description": "",
+      "quantity": 12,
+      "item_type": "material",
+      "power": 0
+    }
+  ],
+  "world": {
+    "location": "rìa một khu đổ nát rộng lớn từng là thành trì của một vương quốc cổ, nay chỉ còn tro bụi và những mảnh tường đen sì vì lửa thiêng. Nơi đây nằm sát vùng cấm mang tên 'Tro tàn Eldoria' – thứ vẫn âm ỉ như một vết thương chưa lành trên thế giới.",
+    "region": "Thành Phế Tích Vàng Son (thủ đô cũ, nay là mê cung đổ nát với những bẫy ma thuật còn hoạt động)",
+    "landmark": "khu vực ban đầu",
+    "danger_level": 1,
+    "threat_state": "ổn định",
+    "in_combat": false,
+    "combat_enemy": "",
+    "discoveries": [],
+    "flags": {},
+    "time_of_day": "ban ngày"
+  },
+  "story_memory": {
+    "recent_events": [
+      "Nhân vật chính vừa xuất hiện tại rìa một khu đổ nát rộng lớn từng là thành trì của một vương quốc cổ, nay chỉ còn tro bụi và những mảnh tường đen sì vì lửa thiêng. Nơi đây nằm sát vùng cấm mang tên 'Tro tàn Eldoria' – thứ vẫn âm ỉ như một vết thương chưa lành trên thế giới.. Ngay sau đó, một trận động đất nhẹ làm rơi vài mảnh đá từ tòa tháp gần nhất, và từ bên trong vọng ra một tiếng cười khô khốc, tắt lịm nhanh chóng. Mở đầu không hề yên tĩnh."
+    ],
+    "important_facts": [
+      "Thế giới hiện tại là Eldoria Tàn Tro.",
+      "Nhân vật chính là Đạt, xuất thân: Một kẻ lữ hành mang khí chất mơ mộng, cứng đầu, nổi bật bởi biết hy sinh, trung thành..",
+      "Điểm mở đầu hiện tại thuộc vùng suy tàn của Eldoria Tàn Tro: rìa một khu đổ nát rộng lớn từng là thành trì của một vương quốc cổ, nay chỉ còn tro bụi và những mảnh tường đen sì vì lửa thiêng. Nơi đây nằm sát vùng cấm mang tên 'Tro tàn Eldoria' – thứ vẫn âm ỉ như một vết thương chưa lành trên thế giới.. Hãy nhớ: ở đây, những gì trông chết chóc thực ra đang ngủ; những gì trông lặng im thực ra đang quan sát. Và không có thứ gì là vô hại."
+    ]
+  },
+  "turn_count": 0
+}
